@@ -1,0 +1,110 @@
+:root {
+  /* Enhanced color palette */
+  --bg-primary: #0a0b0e;
+  --bg-secondary: #141519;
+  --text-primary: #f0f0f0;
+  --text-secondary: #9ca3af;
+  --accent-primary: #7c3aed;
+  --accent-secondary: #10b981;
+  --border-color: #2d2f36;
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #10b981 100%);
+  --gradient-hover: linear-gradient(135deg, #6d31d4 0%, #0ea975 100%);
+  --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --message-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Improved scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 3px;
+}
+
+/* Enhanced message bubbles */
+.message {
+  max-width: 80%;
+  padding: 12px 18px;
+  border-radius: 16px;
+  box-shadow: var(--message-shadow);
+  transition: transform 0.2s ease;
+}
+
+.message.user {
+  background: linear-gradient(145deg, rgba(124, 58, 237, 0.15), rgba(124, 58, 237, 0.25));
+  backdrop-filter: blur(8px);
+}
+
+.message.bot {
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.25));
+  backdrop-filter: blur(8px);
+}
+
+/* Improved input area */
+.message-input {
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+  outline: none;
+}
+
+/* Enhanced button styling */
+.send-button {
+  background: var(--gradient-primary);
+  padding: 12px 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.send-button:hover:not(:disabled) {
+  background: var(--gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+/* Improved typing indicator */
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: var(--accent-primary);
+  animation: typing 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+}
+
+/* Add smooth animations */
+.message-wrapper {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
