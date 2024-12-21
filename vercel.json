@@ -1,0 +1,12 @@
+{
+  "builds": [
+    {
+      "src": "server/package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "EXAMPLE_NAME": "I9JU23NF394R6HH"
+  },
+  "installCommand": "npm install"
+}
