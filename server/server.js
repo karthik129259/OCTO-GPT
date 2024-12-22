@@ -18,8 +18,8 @@ app.use(express.json());
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-// POST endpoint only
-app.post('/api/message', async (req, res) => {
+// Serverless-style handler function
+const messageHandler = async (req, res) => {
   const { message, sender } = req.body;
 
   if (!message || !sender) {
@@ -46,7 +46,10 @@ app.post('/api/message', async (req, res) => {
       details: error.message
     });
   }
-});
+};
+
+// Use the handler in Express route
+app.post('/api/message', messageHandler);
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
